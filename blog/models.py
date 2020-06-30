@@ -10,6 +10,24 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
 
+    CATEGORY1 = 'Essen'
+    CATEGORY2 = 'Körper'
+    CATEGORY3 = 'Lifestyle'
+    CATEGORY4 = 'Sport'
+    CATEGORY5 = 'Anders'
+    CATEGORY_CHOICES = [
+        (CATEGORY1, 'Essen'),
+        (CATEGORY2, 'Körper'),
+        (CATEGORY3, 'Lifestyle'),
+        (CATEGORY4, 'Sport'),
+        (CATEGORY5, 'Anders')
+    ]
+    category = models.CharField(
+        blank=True,
+        max_length=20,
+        choices=CATEGORY_CHOICES,
+    )
+
     def publish(self):
         self.published_date = timezone.now()
         self.save()
