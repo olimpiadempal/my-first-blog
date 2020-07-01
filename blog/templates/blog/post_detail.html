@@ -4,7 +4,7 @@
     <div class="post">
         {% if post.published_date %}
             <div class="date">
-                <code>Erstelldatum:</code>{{ post.published_date }}
+                <code>Data utworzenia:</code>{{ post.published_date }}
             </div>
         {% endif %}
         {% if post.author %}
@@ -14,12 +14,12 @@
         {% endif %}
 
         <div class="category">
-            <code>Kategorie:</code>{{ post.category }}
+            <code>Kategoria:</code>{{ post.category }}
         </div>
 
 
 
-        <code>Bearbeite den Blogbeitrag:</code>
+        <code>Edytuj post:</code>
 
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
